@@ -1,0 +1,11 @@
+.homePage {
+    padding: 0 4rem;
+    // all the screensize minus the header
+    height: calc(100vh - 6.5rem);
+    overflow-y: scroll;
+
+    h2{
+        margin-top: 2rem;
+        margin-bottom: 2.5rem;
+    }
+}
