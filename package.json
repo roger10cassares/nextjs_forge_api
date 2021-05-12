@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^9.0.2",
     "forge-apis": "^0.8.5",
     "next": "10.2.0",
     "react": "17.0.2",
