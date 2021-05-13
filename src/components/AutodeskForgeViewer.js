@@ -1,47 +1,39 @@
 import { useEffect, useState } from 'react';
+
+import { getAutodeskForgeToken } from './getAutodeskForgeToken';
 import { initializeAutodeskForgeViewer } from './initializeAutodeskForgeViewer';
 
+//Functional COmponent Cannot be ASYNC! oTHERWISE, MAKE THE ASYNC AT THE GETsTAICpROPS
+export const AutodeskForgeViewer = (props) => {
+  const [autodeskForgeToken, setAutodeskForgeToken] = useState({})
 
-export const AutodeskForgeViewer = async () => {
+  const clientId=props.clientId
+  const clientSecret=props.clientSecret
+  const grantType=props.grantType
+  const scope=props.scope
+  const urn=props.urn
 
-    
-    const urn ='YWRzay5vYmplY3RzOm9zLm9iamVjdDphdmZxcGF6bGt0MW0xMHBicWRjaHRwa3pwZWlxdGt3dy1pbXQvaW10XzAwXzAxLnJ2dA'
-    
-    // useEffect(() => {
-    //   initializeAutodeskForgeViewer(urn)
+  console.log(`AutodeskForgeViewerProps: ${props}`)
 
-    // }, []);
-
-    initializeAutodeskForgeViewer(urn)
-
-
-    return (
-        <div>
-            <div id='viewerContainer'></div>
-        </div>
-    )
-}
-
-
-
-
-// export const getStaticProps: GetStaticProps = async () => {
-export const getStaticProps = async () => {
-
-
- 
-
-
-
-
-
-  return {
-    props: {
-      latestEpisodes,
-      allEpisodes
-    },
-    revalidate: 60 * 60 *8, //each 8 hours, a new api call will be fetchedwhen a new person access the page! 3 times a day.
+  const handleAutodeskForgeToken = async (clientId, clientSecret, grantType, scope) => {
+    const token = await getAutodeskForgeToken(clientId, clientSecret, grantType, scope);
+    setAutodeskForgeToken(token);
+    return autodeskForgeToken;
   }
+ 
+  useEffect(() => {
+    const autodeskForgeToken = handleAutodeskForgeToken(clientId, clientSecret, grantType, scope);
+  }, [])
 
+
+  useEffect(() => {
+    initializeAutodeskForgeViewer(autodeskForgeToken, urn);
+  }, [autodeskForgeToken])
+
+
+  return (
+      <div>
+          <div id='viewerContainer'></div>
+      </div>
+  )
 }
-

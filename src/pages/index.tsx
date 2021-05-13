@@ -2,11 +2,13 @@
 import Head from 'next/head';
 import { AutodeskForgeViewer } from "../components/AutodeskForgeViewer";
 
+import { initializeAutodeskForgeViewer } from '../components/initializeAutodeskForgeViewer';
+
+import config from '../../config';
 import styles from './home.modules.scss';
 
 
 const Home: React.FC = () => {
-
   return (
     <div>
       <Head>
@@ -21,7 +23,15 @@ const Home: React.FC = () => {
         />
       </Head>
 
-      <AutodeskForgeViewer />
+      <AutodeskForgeViewer
+        // clientId={config.credentials.client_id}
+        // clientSecret={config.credentials.client_secret}
+        clientId="AVFqPAZlkt1M10pbqDcHtpKzpEiQtKww"
+        clientSecret="GnbbM1RU0pOG2kqc"
+        grantType="client_credentials"
+        scope="data:read"
+        urn="YWRzay5vYmplY3RzOm9zLm9iamVjdDphdmZxcGF6bGt0MW0xMHBicWRjaHRwa3pwZWlxdGt3dy1pbXQvaW10XzAwXzAxLnJ2dA"
+      />
     </div>
   );
 }
