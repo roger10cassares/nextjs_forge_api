@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // export const getAutodeskForgeToken = async (clientId, clientSecret, grantType, scope) => {
-export const getAutodeskForgeToken = async (clientId, clientSecret, grantType, scope) => {
+export const getAutodeskForgeToken = async (body) => {
 
-  const body = `client_id=${clientId}&client_secret=${clientSecret}&grant_type=${grantType}&scope=${scope}`;
+  // const body = `client_id=${clientId}&client_secret=${clientSecret}&grant_type=${grantType}&scope=${scope}`;
 
   const { data } = await axios.request({
     url: '/authentication/v1/authenticate',
