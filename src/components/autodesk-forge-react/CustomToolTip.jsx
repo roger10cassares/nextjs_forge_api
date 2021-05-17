@@ -16,7 +16,7 @@
 import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import DataChart from "../components/DataChart.jsx";
+import DataChart from "./DataChart.jsx";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 // eslint-disable-next-line no-unused-vars
 

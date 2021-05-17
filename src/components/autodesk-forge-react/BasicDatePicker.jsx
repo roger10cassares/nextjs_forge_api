@@ -19,7 +19,7 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
-import { timeEqual } from "../../shared/Utility";
+import { timeEqual } from "../../utils/Utility";
 
 /**
  * A basic date picker component.

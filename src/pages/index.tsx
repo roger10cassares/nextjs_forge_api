@@ -1,58 +1,61 @@
 
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+// import Head from 'next/head';
+// import { GetStaticProps } from 'next';
 
-import Viewer from '../components/autodesk-forge-react/components/Viewer.jsx'
+// import AutodeskForgeApp from '../components/autodesk-forge-react/AutodeskForgeApp'
 
-import { 
-    getAutodeskForgeToken 
-} from '../services/autodesk-forge-services/autodesk-forge-tokens/getAutodeskForgeToken';
+// import {
+//     getAutodeskForgeToken 
+// } from '../services/autodesk-forge-services/autodesk-forge-tokens/getAutodeskForgeToken';
 
-import config from '../../config';
-import styles from './home.modules.scss';
+// import config from '../../config';
+// import styles from './home.modules.scss';
 
 
-const Home: React.FC = () => {
-  const [autodeskForgeToken, setAutodeskForgeToken] = useState('')
+// type Token = {
+//   access_token: string;
+//   token_type: string;
+//   expires_in: string;
+// }
 
-  const clientId="AVFqPAZlkt1M10pbqDcHtpKzpEiQtKww"
-  const clientSecret="GnbbM1RU0pOG2kqc"
-  const grantType="client_credentials"
-  const scope="data:read"      
-  const body = `client_id=${clientId}&client_secret=${clientSecret}&grant_type=${grantType}&scope=${scope}`;
+// type HomeProps = { 
+//   // episodes: Array<Token> // sama as bellow
+//   token: Token[];
+// }
 
-  const handleAutodeskForgeToken = async (body) => {
-    const token = await getAutodeskForgeToken(body);
-    setAutodeskForgeToken(token);
-    return autodeskForgeToken;
-  }
- 
-  useEffect(() => {
-    // const autodeskForgeToken = handleAutodeskForgeToken(clientId, clientSecret, grantType, scope);
-    const autodeskForgeToken = handleAutodeskForgeToken(body);
-  }, [])
 
+// const Home = ({ token }: HomeProps) => {
+const Home = () => {
 
   return (
-    <div>
-      <Head>
-        <link 
-          rel="stylesheet" 
-          href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" 
-          type="text/css" 
-        />
-        <script 
-          type="text/javascript" 
-          src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js" 
-        />
-      </Head>
+    <div>Home</div>
 
-      <Viewer 
-            getToken={() => getAutodeskForgeToken(body)}
-            docUrn="urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YXZmcXBhemxrdDFtMTBwYnFkY2h0cGt6cGVpcXRrd3ctaW10L2ltdF8wMF8wMS5ydnQ"
-      />
-    </div>
+    // <div>
+    //   <Head>
+    //     <link 
+    //       rel="stylesheet" 
+    //       href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" 
+    //       type="text/css" 
+    //     />
+    //     <script 
+    //       type="text/javascript" 
+    //       src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js" 
+    //     />
+    //   </Head>
+
+    //   <AutodeskForgeApp />
+
+
+    //   {/* <Viewer 
+    //         // getToken={() => getAutodeskForgeToken(body)}
+    //         getToken={token}
+    //         docUrn="urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YXZmcXBhemxrdDFtMTBwYnFkY2h0cGt6cGVpcXRrd3ctaW10L2ltdF8wMF8wMS5ydnQ"
+    //   /> */}
+    // </div>
   );
 }
 
 export default Home;
+
+
+ 

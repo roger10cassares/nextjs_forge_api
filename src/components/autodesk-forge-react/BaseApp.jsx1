@@ -21,15 +21,14 @@
 ] */
 
 import React, { useEffect, useState, useRef } from "react";
-import Viewer from "./Viewer.jsx";
+import Viewer from "./Viewer.tsx";
 import CustomToolTip from "./CustomToolTip.jsx";
 import DataPanelContainer from "./DataPanelContainer.jsx";
 import HyperionToolContainer from "./HyperionToolContainer.jsx";
-import { SpriteSize, SensorStyleDefinitions, PropIdGradientMap, PropertyIconMap } from "../config/SensorStyles.js";
-import adskLogoSvg from "../../assets/images/autodesk-logo.svg";
+import { SpriteSize, SensorStyleDefinitions, PropIdGradientMap, PropertyIconMap } from "../../config/SensorStyles.js";
 import ChronosTimeSlider from "./ChronosTimeSlider.jsx";
 import BasicDatePicker from "./BasicDatePicker.jsx";
-import { getPaddedRange, getTimeInEpochSeconds, getClosestValue, clamp } from "../../shared/Utility";
+import { getPaddedRange, getTimeInEpochSeconds, getClosestValue, clamp } from "../../utils/Utility";
 import HeatmapOptions from "./HeatmapOptions.jsx";
 import EventTypes from "./EventTypes.js";
 import io from "socket.io-client";
@@ -46,6 +45,9 @@ import {
     DeviceProperty,
     DeviceModel
 } from "forge-dataviz-iot-data-modules/client";
+
+const  adskLogoSvg = "/assets/images/autodesk-logo.svg";
+
 
 // End Range for timeslider
 const endRange = new Date(new Date().getTime() + 7 * 60 * 60 * 1000 * 24);

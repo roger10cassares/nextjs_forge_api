@@ -15,7 +15,7 @@
 //
 import React, { useState, useEffect, useRef } from "react";
 import * as darkGrayHighDensityTheme from "@hig/theme-data/build/esm/darkGrayHighDensityTheme";
-import { timeEqual } from "../../shared/Utility";
+import { timeEqual } from "../../utils/Utility";
 import { TimeSlider } from "chronos-etu";
 
 /**
